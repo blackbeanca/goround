@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinyl Record Hover Effect</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .case {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .info {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-size: 18px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .vinyl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://cdn.pixabay.com/photo/2012/04/15/18/57/record-34799_1280.png');
+      background-size: cover;
+      border-radius: 50%;
+      opacity: 0;
+      transform: translateX(-100%) rotate(-180deg);
+      transition: all 0.3s ease;
+    }
+
+    .case:hover .overlay {
+      opacity: 1;
+    }
+
+    .case:hover .cover {
+      transform: translateX(50%) rotate(10deg);
+    }
+
+    .case:hover .info {
+      opacity: 1;
+    }
+
+    .case:hover .vinyl {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg);
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="case">
+    <div class="overlay"></div>
+    <img class="cover" src="MINY Podcast Album Artwrok.png" alt="Album Cover">
+    <span class="info">MINY Music Moments by Alet Viegas
+    </span>
+    <div class="vinyl"></div>
+  </div>
+</body>
+
+</html>
